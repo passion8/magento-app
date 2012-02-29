@@ -14,7 +14,7 @@
 				   '">click here to activate</a>');
 		
         $this->_addContent($block);
-		 var_dump(Mage::getModel('core/config')->saveConfig('design/head/includes', $value ));			
+	//	 var_dump(Mage::getModel('core/config')->saveConfig('design/head/includes', $value ));			
 		
 		
 		$this->_setActiveMenu('Lexity/first_page');
