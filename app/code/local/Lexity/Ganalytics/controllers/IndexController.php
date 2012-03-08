@@ -2,6 +2,7 @@
 { 
         public function indexAction()
         {
+                $this->_title('Lexity');
                 $this->loadLayout();        
 		$this->_addContent($this->getLayout()->createBlock('ganalytics/index'));
                 $this->getLayout();
@@ -38,7 +39,7 @@
         }
         
 
-        $this->_redirect('*/*/');
+         $this->_redirect('*/index/index');
 	}
 	
 	public function miscsetAction()
@@ -46,11 +47,18 @@
           Mage::getModel('ganalytics/index')->addmisc();
           $message = $this->__('Lexity script is now set.');
           Mage::getSingleton('adminhtml/session')->addSuccess($message);
-            $this->_redirect('*/*/');
+             $this->_redirect('*/index/index');
 	}
 	
 	public function usersetAction()
-	{	
+	{       	
+                $params  =  array( 'url' => $_SERVER['SERVER_NAME'] );
+                $url_path = Mage::getModel('ganalytics/index')->lexity_inc_path('url.txt');
+                $url = @file_get_contents($url_path);
+                if($url)
+                    {
+                    Mage::getModel('ganalytics/index')->rest_helper($url,$params);
+                    }
 		$post = $this->getRequest()->getPost();
         try {
             if (empty($post)) {
@@ -60,20 +68,15 @@
             /* here's your form processing */
            $api_key = $post['myform']['api_key'];
             $some = Mage::getModel('ganalytics/index')->adduser($api_key);
-            $params  =  array( 'url' => $_SERVER['SERVER_NAME'] );
-            $url = @file_get_contents($url_path);
-            if($url)
-                {
-                Mage::getModel('ganalytics/index')->rest_helper($url,$params);
-                }
             
-            $message = $this->__(' User & Role defined ');
+            $message = $this->__('Lexity extension activated .');
             Mage::getSingleton('adminhtml/session')->addSuccess($message);
+            
         } catch (Exception $e) {
             Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
         }
         
-        $this->_redirect('*/*/');
+        $this->_redirect('*/index/index');
 	
 	}
        
