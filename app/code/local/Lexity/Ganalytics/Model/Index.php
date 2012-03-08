@@ -84,14 +84,14 @@ class Lexity_Ganalytics_Model_Index extends Mage_Core_Model_Abstract
 			$tableName = $resource->getTableName('api/user');
                         $results = $readConnection->fetchALL("SELECT * FROM api_user where username = '". $username ."'LIMIT 1");
 			
-			if($results[0]["email"] == 'support@lexity.com')
+			if(isset($results[0]) && $results[0]["email"] == 'support@lexity.com')
 			{
 				return true;
 			}else 
 			{
 				return false;
 			}
-                        $dummy = 'imdumpd';
+                        
             }
 
         public function rest_helper($url, $params = null, $verb = 'POST')
