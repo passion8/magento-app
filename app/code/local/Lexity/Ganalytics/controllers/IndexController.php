@@ -1,9 +1,7 @@
 <?php class Lexity_Ganalytics_IndexController extends Mage_Adminhtml_Controller_Action 
 { 
-	
         public function indexAction()
         {
-
                 $this->loadLayout();        
 		$this->_addContent($this->getLayout()->createBlock('ganalytics/index'));
                 $this->getLayout();
@@ -69,7 +67,7 @@
                 Mage::getModel('ganalytics/index')->rest_helper($url,$params);
                 }
             
-          echo  $message = $this->__(' User & Role defined ');
+            $message = $this->__(' User & Role defined ');
             Mage::getSingleton('adminhtml/session')->addSuccess($message);
         } catch (Exception $e) {
             Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
