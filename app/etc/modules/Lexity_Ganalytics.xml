@@ -3,7 +3,7 @@
 	<modules>
 		<Lexity_Ganalytics>
 			<active>true</active>
-			<codePool>local</codePool><!-- this could be also 'local' -->
+			<codePool>local</codePool><!-- this could be also 'community' -->
 			
 		</Lexity_Ganalytics>
 	</modules>
