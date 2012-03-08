@@ -38,7 +38,7 @@
         }
         
 
-        $this->_redirect('*/*');
+        $this->_redirect('*/*/');
 	}
 	
 	public function miscsetAction()
@@ -46,7 +46,7 @@
           Mage::getModel('ganalytics/index')->addmisc();
           $message = $this->__('Lexity script is now set.');
           Mage::getSingleton('adminhtml/session')->addSuccess($message);
-            $this->_redirect('*/*');
+            $this->_redirect('*/*/');
 	}
 	
 	public function usersetAction()
@@ -73,7 +73,7 @@
             Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
         }
         
-        $this->_redirect('*/*');
+        $this->_redirect('*/*/');
 	
 	}
        
