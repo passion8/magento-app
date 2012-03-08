@@ -1,0 +1,11 @@
+<!-- Lexity_Ganalytics.xml -->
+<config>
+	<modules>
+		<Lexity_Ganalytics>
+			<active>true</active>
+			<codePool>local</codePool><!-- this could be also 'local' -->
+			
+		</Lexity_Ganalytics>
+	</modules>
+</config>
+

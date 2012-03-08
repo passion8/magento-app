@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+ 
+<config>
+    <api>
+	<resources>
+            <ganalytics_order translate="title" module="ganalytics">
+                <model>ganalytics/order_api</model>
+                <title>Order API</title>
+             <acl>ganalytics/order</acl> 
+                <methods>
+                    <limiteditems translate="title" module="ganalytics">
+                        <title>Retrieve list of orders by filters</title>
+                        <method>limiteditems</method>
+                    </limiteditems>
+                    
+                </methods>
+               
+            </ganalytics_order>
+	</resources>
+	<resources_alias>
+            <pagorder>ganalytics_order</pagorder>
+	</resources_alias>
+	
+        <acl>
+            <resources>
+                        <ganalytics_order translate="title" module="ganalytics">
+                            <title>orders</title>
+                            
+                                    <order translate="title" module="ganalytics">
+                                            <title>View All</title>
+                                    </order>
+                        </ganalytics_order>
+
+                        
+            </resources>
+	</acl>
+    </api>
+</config>

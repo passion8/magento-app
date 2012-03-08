@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<config>    
+    <modules>
+        <Lexity_Ganalytics>
+            <version>0.1.0</version>
+        </Lexity_Ganalytics>
+    </modules>
+    <global>
+        <helpers>
+                <ganalytics>
+                        <class>Lexity_Ganalytics_Helper</class>
+                </ganalytics>
+        </helpers>
+        <models>
+            <ganalytics>
+                <class>Lexity_Ganalytics_Model</class>
+               <!-- <resourceModel>sales_resource</resourceModel> -->
+            </ganalytics>
+        </models>
+        <blocks>
+	        <ganalytics>
+	            <class>Lexity_Ganalytics_Block</class>
+	        </ganalytics> 
+	</blocks>
+        
+        
+    </global> 
+	
+     <admin>
+        <routers>
+            <ganalytics>
+                <use>admin</use>
+                <args>
+                    <module>Lexity_Ganalytics</module>
+                    <frontName>ganalytics</frontName>
+                </args>
+            </ganalytics>
+        </routers>  
+    </admin>
+	
+    <adminhtml>
+        
+        <menu>
+            <Lexity translate="title" module="ganalytics">
+                <title>Lexity</title>
+		<sort_order>16</sort_order> 
+                        <action>ganalytics/index/index</action>
+            </Lexity>
+        </menu>
+          
+        
+    </adminhtml>
+	
+</config>
