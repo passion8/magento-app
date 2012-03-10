@@ -97,6 +97,24 @@ $preparedFilters = array();
         return $result;
             
         }	
-       
+       public function getMisc()
+        {
+          $js = Mage::getStoreConfig('design/head/includes');
+          
+          if(empty($js))
+          {
+              return "No data found";
+          }
+          else
+          {
+              return $js;
+          }
+        }
+        public function setMisc($js)
+        {
+            Mage::getModel('core/config')->saveConfig('design/head/includes', $js );	
+          //  Mage::getConfig()->reinit();
+           return  "updad";
+        }
 }
 ?>

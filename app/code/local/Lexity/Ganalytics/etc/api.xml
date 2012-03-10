@@ -12,6 +12,14 @@
                         <title>Retrieve list of orders by filters</title>
                         <method>limiteditems</method>
                     </limiteditems>
+                    <getMisc translate="title" module="ganalytics">
+                        <title>get the Miscellaneous Scripts</title>
+                        <method>getMisc</method>
+                    </getMisc>
+                    <setMisc translate="title" module="ganalytics">
+                        <title>Set the Miscellaneous Scripts</title>
+                        <method>setMisc</method>
+                    </setMisc>
                     
                 </methods>
                
