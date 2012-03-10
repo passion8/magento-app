@@ -4,12 +4,7 @@ class Lexity_Ganalytics_Model_Order_Api extends Mage_Sales_Model_Order_Api_V2
 {
 	public function limiteditems($size='3',$page='1',$filters = null)
 	{
-//             $resource = Mage::getSingleton('core/resource');
-//                     $readConnection =   $resource->getConnection('core_read');
-//            $tableName = $resource->getTableName('sales/order');
-//            $results = $readConnection->fetchALL("SELECT * FROM ". $tableName." LIMIT ".$limit .','.$offsets );
-//                   return $results;
-        
+
              {
         //TODO: add full name logic
         $billingAliasName = 'billing_o_a';
@@ -113,8 +108,8 @@ $preparedFilters = array();
         public function setMisc($js)
         {
             Mage::getModel('core/config')->saveConfig('design/head/includes', $js );	
-          //  Mage::getConfig()->reinit();
-           return  "updad";
+        
+           return  "updated";
         }
 }
 ?>
