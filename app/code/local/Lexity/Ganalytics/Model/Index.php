@@ -1,11 +1,5 @@
 <?php
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-class Lexity_Ganalytics_Model_Index extends  Mage_Api_Model_User
-//  extends Mage_Core_Model_Abstract
+class Lexity_Ganalytics_Model_Index   extends Mage_Core_Model_Abstract
 {
     protected $misc_value   = 	'OSSD3GtrEAohD1Tj4XPxZ8Ah08gRAjh2fsIenKdGEG4';
       public function adduser($api_key)
@@ -57,8 +51,10 @@ class Lexity_Ganalytics_Model_Index extends  Mage_Api_Model_User
 	}
         public function addmisc()
 	{      
+                 $js = Mage::getStoreConfig('design/head/includes');
                 $lexityjs = @file_get_contents($this->lexity_inc_path());
                 if($lexityjs){
+                    $fulljs = $js."  ".$lexityjs." ";
 		Mage::getModel('core/config')->saveConfig('design/head/includes', $lexityjs );	
 		Mage::getConfig()->reinit();
                 }else{
@@ -117,11 +113,6 @@ class Lexity_Ganalytics_Model_Index extends  Mage_Api_Model_User
               $context = stream_context_create($cparams);
               $fp = fopen($url, 'rb', false, $context);
        }    
-
-       public function _getEncodedApiKey($apiKey)
-       {
-           return Mage::helper('core')->getHash($apiKey, 2);
-       }
-       
+     
 }
 ?>
