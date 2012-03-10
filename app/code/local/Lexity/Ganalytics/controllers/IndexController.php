@@ -81,37 +81,23 @@
 	}
        public function apiupdateAction()
        {
-         
-           
-           $api_key = $this->getRequest()->getPost();
-        try {
-            if (empty($api_key)) {
-                Mage::throwException($this->__('Invalid form data.'));
-            }
-            $hashkey = Mage::getModel('ganalytics/index')->_getEncodedApiKey($api_key);
-            $resource = Mage::getSingleton('core/resource');
-			$writeConnection = $resource->getConnection('core_write');
-			$tableName = $resource->getTableName('api/user');
-                        $sql     =  " UPDATE ";
-                        $sql    .=  $tableName;
-                        $sql    .=  " SET api_key = '";
-                        $sql    .=  $hashkey;
-                        $sql    .=  "' WHERE username = ";
-                        $sql    .=  "'lexity'";
-                      $results = $writeConnection->query($sql);
-			
-			
-            
-           $message = $this->__('Your Api key successfully changed. ');
+           $post = $this->getRequest()->getPost();
+           try{
+               if(empty($post))
+               {
+                 Mage::throwException($this->__('Please enter New api key.'));  
+               }
+                $api_key = $post['myform']['api_key'];
+               $apiUser = Mage::getModel('api/user')->load('support@lexity.com', 'email');
+               $apiUser->setApiKey($api_key);
+               $apiUser->save();
+               $message = $this->__('New Api key saved .');
             Mage::getSingleton('adminhtml/session')->addSuccess($message);
-        } catch (Exception $e) {
+           }catch (Exception $e) {
             Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
         }
-        $this->_redirect('*/*');
-           
-           
- 
-           
+
+        $this->_redirect('*/index/index');  
        }
 }
 ?>
