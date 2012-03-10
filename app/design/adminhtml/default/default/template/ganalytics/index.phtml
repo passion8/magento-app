@@ -87,23 +87,33 @@ elseif(($this->checking_both() == 'notmisc'))
 }
 else
     {
-    echo '<div class="main-col-inner">
-    <div class="content-header"
-         <table cellspacing="0">
-             <tbody>
-                 <tr>
-                    <td style="width:50%;"><h3 class="icon-head head-cms-page">Lexity</h3></td>
-                        </a></td>
-                 </tr>
-            </tbody>
-        </table>	
-    </div>
-    <ul class="messages"><li class="success-msg"><ul><li>
-              <span> Lexity script is defined  </span>
-          </li></ul></li></ul>
-         <a href="http://www.lexity.com"><img src="http://i363.photobucket.com/albums/oo77/paritoshparitosh57/lexity_logo.jpg" width="152" height="52" /></a>
-       
-        </div>';
+     echo '<div class="content-header">
+    <table cellspacing="0" class="grid-header">
+        <tr>
+            <td><h3>' . $this->__('Lexity') .'</h3></td>
+            <td class="a-right">
+                <button onclick="editForm.submit()" class="scalable save" type="button"><span>Update Api</span></button>
+            </td>
+        </tr>
+    </table>
+</div>
+   <div class="entry-edit">
+    <form id="edit_form" name="edit_form" method="post" action="'.$this->getUrl('*/*/apiupdate').'">
+        <input name="form_key" type="hidden" value="'.Mage::getSingleton('core/session')->getFormKey().'" />
+        <h4 class="icon-head head-edit-form fieldset-legend">'.$this->__('Account Information').'</h4>
+        <fieldset id="my-fieldset">
+            <table cellspacing="0" class="form-list">
+                <tr>
+                    <td class="label">'.$this->__('Enter new API Key').'<span class="required">*</span></td>
+                    <td class="input-ele"><input class="input-text required-entry" name="myform[api_key]" /></td>
+                </tr>
+            </table>
+        </fieldset>
+        </form>
+</div><script type="text/javascript">
+    var editForm = new varienForm(\'edit_form\');
+</script>';
+
     }
 ?>
 
